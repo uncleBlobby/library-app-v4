@@ -117,3 +117,12 @@ body {
     grid-template-columns: auto auto auto auto;
     grid-template-rows: auto auto auto auto;
 }
+
+.libraryCard {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height: 4fr;
+    width: 4fr;
+    border: 1px solid orange;
+}
