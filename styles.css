@@ -6,22 +6,26 @@ body {
 }
 
 #mainContainer {
-    border: 1px dashed white;
+    border: 1px solid rgb(75, 75, 75);
     height: 100vh;
     width: 90vw;
 }
 
 #header {
     display: flex;
-    border: 1px dashed pink;
+    border: 1px solid rgba(202, 108, 124, 0.774);
+    background-color: rgba(202, 108, 124, 0.774);
     width: 90vw;
     height: 100px;
     justify-content: center;
 }
 
 #addBookBtn {
+    font-size: 28px;
     display: flex;
-    border: 1px dashed green;
+    border: 1px solid rgba(48, 131, 48, 0.5);
+    border-radius: 5px;
+    background-color: rgba(48, 131, 48, 0.5);
     width: 200px;
     height: 80px;
     margin-top: 8px;
@@ -30,7 +34,8 @@ body {
 }
 
 #addBookBtn:hover {
-    background-color:rgb(49, 49, 49);
+    font-size: 32px;
+    background-color:rgba(82, 235, 82, 0.74);
     width: 220px;
     height: 84px;
 }
@@ -53,9 +58,10 @@ body {
     background-color: rgb(49, 49, 49);
     margin: 15% auto;
     padding: 20px;
+    padding-bottom: 80px;
     border: 1px solid orangered;
     width: 20%;
-    height: 30%;
+    height:max-content;
 }
 
 .close {
@@ -93,16 +99,17 @@ body {
 }
 
 #btitle {
+    margin-top: 10px;
     margin-left: 19px;
 }
 
 #bauthor {
-    margin-top: 5px;
+    margin-top: 7px;
 }
 
 
 #bpages {
-    margin-top: 5px;
+    margin-top: 7px;
     margin-left: 8px;
 }
 
@@ -120,9 +127,45 @@ body {
 
 .libraryCard {
     display:flex;
+    position:relative;
     justify-content: center;
     align-items:center;
     height: 4fr;
     width: 4fr;
     border: 1px solid orange;
+    background-color: rgba(185, 134, 40, 0.445);
+}
+
+.libraryCard:hover,
+.libraryCard:focus {
+    background-color:rgba(255, 199, 96, 0.664);
+}
+
+.deleteButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    width: 45px;
+    height: 35px;
+    border: 1px solid red;
+    bottom: 5px;
+    right: 5px;
+    font-size: 20px;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+    background-color: rgb(255, 96, 96);
+    width: 66px;
+    height: 55px;
+    font-size: 30px;
+}
+
+
+#modalHeader {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 12px;
+    padding-right: 115px;
 }
