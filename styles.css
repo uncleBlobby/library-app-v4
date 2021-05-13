@@ -1,8 +1,11 @@
+
+
 body {
     display: flex;
     background-color: rgb(29, 29, 29);
     color: white;
     justify-content: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 #mainContainer {
@@ -31,6 +34,7 @@ body {
     margin-top: 8px;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 
 #addBookBtn:hover {
@@ -62,6 +66,7 @@ body {
     border: 1px solid orangered;
     width: 20%;
     height:max-content;
+    border-radius: 5px;
 }
 
 .close {
@@ -76,6 +81,7 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+    font-size: 23px
 }
 
 .addBook {
@@ -118,6 +124,26 @@ body {
     margin-left: 45px;
 }
 
+input[type=text] {
+    outline: none;
+    background-color:rgb(49, 49, 49);
+    color: white;
+    font-size: 16px;
+    border: 1px solid rgb(75, 75, 75);
+    padding-left: 7px;
+    border-radius: 5px;
+}
+
+input[type=text]:hover,
+input[type=text]:focus {
+    background-color:rgb(75, 75, 75);
+}
+
+input[type=text]:focus {
+    border-color: white;
+}
+
+
 #libraryDisplay {
     height: 70vh;
     display: grid;
@@ -152,6 +178,7 @@ body {
     bottom: 5px;
     right: 5px;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .deleteButton:hover,

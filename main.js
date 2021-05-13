@@ -25,16 +25,9 @@ function addCardToLibrary(newBook){
 
 
 function submitForm(){
-    if(btitle.value != "Title"){
+
     myLibrary[myLibrary.length] = new Book(btitle.value, bauthor.value, bpages.value, bisread.checked);
-    console.log("form submitted");
-    console.log("library length: " + myLibrary.length);
-    console.log(myLibrary);
     addCardToLibrary(myLibrary[myLibrary.length - 1]);
-    }
-    if(btitle.value == "Title"){
-        alert("error");
-    }
 }
 
 function deleteThisBook(thisCard){
@@ -75,7 +68,7 @@ function Book(title, author, pages, isRead){
     this.author = author;
     this.pages = pages;
     this.isRead = isRead;
-    this.info = 'Title: ' + title + '\r\nAuthor: ' + author + '\r\nPages: ' + pages + ' pages ' + '\r\nRead: ' + isRead;
+    this.info = 'Title: ' + title + '\r\nAuthor: ' + author + '\r\nPages: ' + pages + '\r\nRead: ' + isRead;
 
 }
 
