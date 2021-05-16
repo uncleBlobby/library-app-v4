@@ -10,17 +10,49 @@ let libraryGrid = document.getElementById("libraryDisplay");
 
 function addCardToLibrary(newBook){
 
+        console.log(myLibrary);
         let newLibraryCard = document.createElement("div");
-        let deleteButton = document.createElement("div");
+        let cardID = myLibrary.length;
+        console.log(cardID);
+        newLibraryCard.setAttribute("id", cardID);
         newLibraryCard.classList.add("libraryCard");
-        deleteButton.classList.add("deleteButton");
         libraryGrid.appendChild(newLibraryCard);
         newLibraryCard.innerText = newBook.info;
-        newLibraryCard.appendChild(deleteButton);
-        deleteButton.innerText = "X";
-        deleteButton.onclick = function() {
-            deleteThisBook(deleteButton);
-        }
+        addDeleteButton(newLibraryCard);
+        addReadToggle(newLibraryCard, cardID, newBook);
+}
+
+function reDrawCard(myLibrary, cardID){
+        console.log(myLibrary[cardID - 1]);
+        let thisLibraryCard = document.getElementById(cardID);
+        thisLibraryCard.setAttribute("id", cardID);
+        thisLibraryCard.classList.add("libraryCard");
+        libraryGrid.appendChild(thisLibraryCard);
+        thisLibraryCard.innerText = myLibrary[cardID - 1].info;
+        addDeleteButton(thisLibraryCard);
+        addReadToggle(thisLibraryCard, cardID, myLibrary[cardID -1]);
+}
+
+function addDeleteButton(newLibraryCard){
+    let deleteButton = document.createElement("div");
+    deleteButton.classList.add("deleteButton");
+    newLibraryCard.appendChild(deleteButton);
+    deleteButton.innerText = "X";
+    deleteButton.onclick = function() {
+        deleteThisBook(deleteButton);
+    }
+
+}
+
+function addReadToggle(newLibraryCard, cardID, newBook){
+    let isReadToggle = document.createElement("div");
+    isReadToggle.classList.add("isReadToggle");
+    newLibraryCard.appendChild(isReadToggle);
+    isReadToggle.innerText = "is read";
+    isReadToggle.onclick = function() {
+        newBook.toggleRead(cardID);
+    }
+    //addReadToggle(newLibraryCard, cardID, newBook);
 }
 
 
@@ -75,5 +107,29 @@ function Book(title, author, pages, isRead){
 Book.prototype.logInfo = function() {
     console.log(this.info)
 }
+
+Book.prototype.toggleRead = function(cardID) {
+    console.log(this);
+    console.log(this.isRead);
+    let currentCard = document.getElementById(cardID);
+    switch(this.isRead){
+        case true:
+            this.isRead = false;
+            console.log("changed to not read");
+            this.info = 'Title: ' + this.title + '\r\nAuthor: ' + this.author + '\r\nPages: ' + this.pages + '\r\nRead: ' + this.isRead;
+            currentCard.innerText = this.info;
+            reDrawCard(myLibrary, cardID);
+            break;
+        case false:
+            this.isRead = true;
+            console.log("canged to read");
+            this.info = 'Title: ' + this.title + '\r\nAuthor: ' + this.author + '\r\nPages: ' + this.pages + '\r\nRead: ' + this.isRead;
+            currentCard.innerText = this.info;
+            reDrawCard(myLibrary, cardID);
+            break;
+    }
+
+}
+
 
 
