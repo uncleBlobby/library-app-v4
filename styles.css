@@ -196,3 +196,25 @@ input[type=text]:focus {
     padding-bottom: 12px;
     padding-right: 115px;
 }
+
+.isReadToggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 45px;
+    height: 35px;
+    border: 1px solid blue;
+    bottom: 5px;
+    left: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.isReadToggle:hover,
+.isReadToggle:focus {
+    background-color: rgb(109, 109, 255);
+    width: 66px;
+    height: 55px;
+    font-size: 30px;
+}
